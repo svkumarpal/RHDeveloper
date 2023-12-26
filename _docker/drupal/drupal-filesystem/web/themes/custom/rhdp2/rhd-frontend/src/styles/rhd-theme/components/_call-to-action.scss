@@ -1,0 +1,17 @@
+@import "../mixins";
+
+.component {
+  &.assembly-type-call_to_action {
+    @include with-background-padding;
+
+    .cta__title,
+    .cta__content {
+      margin-bottom: var(--rhd-theme--container-spacer-md);
+    }
+
+    .ics-wrapper {
+      margin-bottom: var(--rhd-theme--container-spacer-md);
+    }
+  }
+}
+

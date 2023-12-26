@@ -1,0 +1,85 @@
+{%
+  set classes = [
+    'node',
+    'component',
+    'node--type-' ~ node.bundle|clean_class,
+    not node.isPublished() ? 'node--unpublished',
+    view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
+  ]
+%}
+
+<article{{ attributes.addClass(classes) }}>
+
+  <div class="pf-l-grid pf-m-gutter">
+    <div class="pf-l-grid__item pf-m-12-col pf-m-5-col-on-lg pf-m-4-col-on-md pf-m-3-col-on-sm rhd-c-round-image">
+      {{ content.field_headshot }}
+    </div>
+
+    <div class="pf-l-grid__item pf-m-12-col pf-m-7-col-on-lg pf-m-8-col-on-md pf-m-9-col-on-sm">
+      {{ title_prefix }}
+      <h3>{{ label }}</h3>
+      {{ title_suffix }}
+      {{ content.field_position_title }}
+      <div class="pf-l-grid">
+        <div class="pf-l-grid__item pf-m-12-col">
+          {{ content.body }}
+        </div>
+        {% if social_links %}
+          <div class="pf-l-grid__item pf-m-12-col pf-u-mt-sm">
+            <div class="social-links">
+              {% if social_twitter %}
+                <a href="{{ social_twitter }}">
+                  <span class="author-social-icon-twitter">
+                    <i class="fab fa-twitter-square" title="View on twitter"></i>
+                  </span>
+                  <span class="a2a_label">Twitter</span>
+                </a>
+              {% endif %}
+              {% if social_facebook %}
+                <a href="{{ social_facebook }}">
+                  <span class="author-social-icon-facebook">
+                    <i class="fab fa-facebook-square" title="View on facebook"></i>
+                  </span>
+                  <span class="a2a_label">Facebook</span>
+                </a>
+              {% endif %}
+              {% if social_youtube %}
+                <a href="{{ social_youtube }}">
+                  <span class="author-social-icon-youtube">
+                    <i class="fab fa-youtube-square" title="view on youtube"></i>
+                  </span>
+                  <span class="a2a_label">YouTube</span>
+                </a>
+              {% endif %}
+              {% if social_linkedin %}
+                <a href="{{ social_linkedin }}">
+                  <span class="author-social-icon-linkedin">
+                    <i class="fab fa-linkedin" title="View on linkedin"></i>
+                  </span>
+                  <span class="a2a_label">LinkedIn</span>
+                </a>
+              {% endif %}
+              {% if social_github %}
+                <a href="{{ social_github }}">
+                  <span class="author-social-icon-github">
+                   <i class="fab fa-github-square" title="View on linkedin"></i>
+                  </span>
+                  <span class="a2a_label">Github</span>
+                </a>
+              {% endif %}
+            </div>
+          </div>
+        {% endif %}
+        {% if social_links %}
+          <div class="pf-l-grid__item pf-m-12-col">
+        {% else %}
+          <div class="pf-l-12-col">
+        {% endif %}
+        {% if social_github %}
+          <a href="{{ social_github }}" class="github-link">{{ social_github }}</a>
+        {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</article>

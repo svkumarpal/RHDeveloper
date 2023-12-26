@@ -1,0 +1,17 @@
+@import "../mixins";
+.assembly-type-featured_products {
+  background-color: var(--rhd-gray-2);
+  @include with-background-padding;
+
+  .featured_products__title {
+    margin-bottom: var(--rhd-theme--container-spacer-lg);
+  }
+
+  /* Variants / visual styles */
+  &.featured .rhd-c-card {
+    border-top: 6px solid var(--rhd-theme--color--ui-accent);
+  }
+  &.basic .rhd-c-card {
+    border-top: none;
+  }
+}
